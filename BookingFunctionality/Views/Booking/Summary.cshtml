@@ -1,0 +1,28 @@
+﻿@model BookingFunctionality.Models.FlightBookingViewModel
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Booking Summary</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Booking Summary</h1>
+        <hr>
+        <div class="summary-details">
+            <h2>Flight Details</h2>
+            <p><strong>Flight Name:</strong> @Model.FlightName</p>
+            <p><strong>Passenger Name:</strong> @Model.PassengerName</p>
+            <p><strong>Passenger Email:</strong> @Model.PassengerEmail</p>
+        </div>
+        <hr>
+        <div class="actions">
+            <form asp-action="ConfirmFlight" method="post">
+                <button type="submit" class="btn btn-primary">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

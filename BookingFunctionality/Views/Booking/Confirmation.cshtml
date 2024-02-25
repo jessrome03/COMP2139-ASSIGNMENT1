@@ -1,0 +1,33 @@
+﻿@model BookingFunctionality.Models.FlightBookingViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Booking Confirmation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Booking Confirmation</h1>
+
+    <div>
+        <h2>Booking Details</h2>
+        <p><strong>Booking ID:</strong> @Model.BookingId</p>
+        <p><strong>User Name:</strong> @Model.UserName</p>
+        <p><strong>Service Type:</strong> @Model.ServiceType</p>
+    </div>
+
+    <div>
+        <h2>Payment Information</h2>
+        <p><strong>Total Amount:</strong> $@Model.TotalAmount</p>
+        <p><strong>Payment Method:</strong> @Model.PaymentMethod</p>
+    </div>
+
+    <div>
+        <h2>Confirmation Message</h2>
+        <p>Congratulations! Your booking has been confirmed.</p>
+    </div>
+
+   
+    <script src="scripts.js"></script>
+</body>
+</html>
