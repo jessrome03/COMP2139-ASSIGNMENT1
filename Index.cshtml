@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Travel Agency"] = "Home Page";
+}
+
+@foreach (var listing in Model)
+{
+    <!-- Display listings with essential information -->
+    <div>
+        <h3>@listing.Name</h3>
+        <p>Price: @listing.Price</p>
+        <!-- Add other listing details -->
+        <a href="@Url.Action("Details", new { listingId = listing.Id })">View Details</a>
+    </div>
+}
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<form asp-controller="Search" asp-action="Search" method="post">
+    <label for="location">Location:</label>
+    <input type="text" id="location" name="Location" value="@Model.Location" />
+
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="Date" value="@Model.Date.ToString("yyyy-MM-dd")" />
+
+    <label for="numPassengers">Number of Passengers:</label>
+    <input type="number" id="numPassengers" name="NumPassengers" value="@Model.NumPassengers" />
+
+    <!-- Add more input fields for additional parameters -->
+
+    <button type="submit">Search</button>
+</form>
+
+@model List<Flight>
+
+<h2>Search Results for Flights</h2>
+
+@if (Model.Any())
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Flight ID</th>
+                <th>Origin</th>
+                <th>Destination</th>
+                <th>Departure Date</th>
+                <th>Arrival Date</th>
+                <th>Price</th>
+                <!-- Add other relevant columns -->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var flight in Model)
+            {
+                <tr>
+                    <td>@flight.FlightId</td>
+                    <td>@flight.Origin</td>
+                    <td>@flight.Destination</td>
+                    <td>@flight.DepartureDate.ToShortDateString()</td>
+                    <td>@flight.ArrivalDate.ToShortDateString()</td>
+                    <td>@flight.Price</td>
+                    <!-- Add other relevant columns -->
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No flights found.</p>
+}
+
+
+
+
